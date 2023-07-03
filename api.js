@@ -1,1 +1,1 @@
-export const BASE_URL = 'https://crud-feedback-app.vercel.app"';
+export const BASE_URL = 'https://crud-feedback-app.vercel.app';
