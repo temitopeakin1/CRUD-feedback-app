@@ -1,10 +1,20 @@
 
 
-  {
-    "functions": {
-      "api/**/*.js": {
-        "runtime": "nodejs16.x",
-        "memory": 512
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "reverse-proxy.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["db.json"]
       }
     }
-  }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "server.js"
+    }
+  ]
+}
