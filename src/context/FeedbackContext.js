@@ -18,8 +18,10 @@ export const FeedbackProvider = ({ children }) => {
   }, []);
 
   const fetchFeedBack = async () => {
-    const response = await fetch(`/feedback?_sort=id&_order=asc`);
+    // const response = await fetch(`/feedback?_sort=id&_order=asc`);
+    const response = await fetch(process.env.API_URL);
     const data = await response.json();
+    
 
     setFeedback(data);
     setIsLoading(false);
