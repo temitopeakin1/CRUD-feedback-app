@@ -4,8 +4,6 @@ import { BASE_URL } from './api';
 
 const FeedbackContext = createContext();
 
-
-
 export const FeedbackProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [feedback, setFeedback] = useState([]);
