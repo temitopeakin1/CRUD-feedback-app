@@ -39,6 +39,16 @@
       "rating": "9",
       "text": "new feedback item",
       "id": 9
+    },
+    {
+      "rating": "9",
+      "text": "new feedback item",
+      "id": 10
+    },
+    {
+      "rating": "12",
+      "text": "new feedback item",
+      "id": 11
     }
   ]
 }
