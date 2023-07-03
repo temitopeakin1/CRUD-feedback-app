@@ -1,16 +1,22 @@
 
+
+
 {
   "version": 2,
   "builds": [
     {
       "src": "build/index.html",
-      "use": "@vercel/node",
+      "use": "@vercel/static-build",
       "config": {
-        "includeFiles": ["db.json"]
+        "zeroConfig": true
       }
     }
   ],
   "routes": [
+    {
+      "src": "/(.*).(js|css|png|jpg|jpeg|gif|svg)",
+      "dest": "/build/$1.$2"
+    },
     {
       "src": "/(.*)",
       "dest": "/build/index.html"
