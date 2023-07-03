@@ -18,7 +18,7 @@ export const FeedbackProvider = ({ children }) => {
   }, []);
 
   const fetchFeedBack = async () => {
-    const response = await fetch(`https://crud-feedback-app.vercel.app/feedback?_sort=id&_order=asc`);
+    const response = await fetch(`/feedback?_sort=id&_order=asc`);
     const data = await response.json();
 
     setFeedback(data);
