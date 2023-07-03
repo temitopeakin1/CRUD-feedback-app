@@ -1,7 +1,10 @@
 import { createContext, useState, useEffect } from "react";
 // import { v4 as uuidv4 } from "uuid"; // to get random ids
+import { BASE_URL } from './api';
 
 const FeedbackContext = createContext();
+
+const apiUrl = `${BASE_URL}/endpoint`;
 
 export const FeedbackProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -18,7 +21,7 @@ export const FeedbackProvider = ({ children }) => {
   }, []);
 
   const fetchFeedBack = async () => {
-    const response = await fetch(`/feedback?_sort=id&_order=asc`);
+    const response = await fetch(`${apiUrl}/feedback?_sort=id&_order=asc`);
     const data = await response.json();
 
     setFeedback(data);
