@@ -1,6 +1,5 @@
 import { createContext, useState, useEffect } from "react";
 // import { v4 as uuidv4 } from "uuid"; // to get random ids
-import { BASE_URL } from './api';
 
 const FeedbackContext = createContext();
 
@@ -19,7 +18,7 @@ export const FeedbackProvider = ({ children }) => {
   }, []);
 
   const fetchFeedBack = async () => {
-    const response = await fetch(`${BASE_URL}/feedback?_sort=id&_order=asc`);
+    const response = await fetch(`/feedback?_sort=id&_order=asc`);
     const data = await response.json();
 
     setFeedback(data);
@@ -29,14 +28,14 @@ export const FeedbackProvider = ({ children }) => {
   // delete feedback
   const deleteFeedback = async (id) => {
     if (window.confirm("Are you sure you want to delete?")) {
-      await fetch(`${BASE_URL}/feedback/${id}`, { method: "DELETE" });
+      await fetch(`/feedback/${id}`, { method: "DELETE" });
       setFeedback(feedback.filter((item) => item.id !== id));
     }
   };
 
   //update feedback item
   const updateFeedback = async (id, updItem) => {
-    const response = await fetch(`${BASE_URL}/feedback/${id}`, { 
+    const response = await fetch(`/feedback/${id}`, { 
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -63,7 +62,7 @@ export const FeedbackProvider = ({ children }) => {
 
   // add feedback
   const addFeedback = async (newFeedback) => {
-    const response = await fetch(`${BASE_URL}/feedback`, {
+    const response = await fetch(`/feedback`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
