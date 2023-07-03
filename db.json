@@ -24,6 +24,21 @@
       "text": "Hello, i have a review",
       "rating": 10,
       "id": 6
+    },
+    {
+      "rating": "9",
+      "text": "new feedback item",
+      "id": 7
+    },
+    {
+      "rating": "9",
+      "text": "new feedback item",
+      "id": 8
+    },
+    {
+      "rating": "9",
+      "text": "new feedback item",
+      "id": 9
     }
   ]
 }
