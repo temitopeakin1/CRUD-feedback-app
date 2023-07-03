@@ -4,7 +4,7 @@ import { BASE_URL } from './api';
 
 const FeedbackContext = createContext();
 
-const apiUrl = `${BASE_URL}/endpoint`;
+
 
 export const FeedbackProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -21,7 +21,7 @@ export const FeedbackProvider = ({ children }) => {
   }, []);
 
   const fetchFeedBack = async () => {
-    const response = await fetch(`${apiUrl}/feedback?_sort=id&_order=asc`);
+    const response = await fetch(`${BASE_URL}/feedback?_sort=id&_order=asc`);
     const data = await response.json();
 
     setFeedback(data);
@@ -31,14 +31,14 @@ export const FeedbackProvider = ({ children }) => {
   // delete feedback
   const deleteFeedback = async (id) => {
     if (window.confirm("Are you sure you want to delete?")) {
-      await fetch(`/feedback/${id}`, { method: "DELETE" });
+      await fetch(`${BASE_URL}/feedback/${id}`, { method: "DELETE" });
       setFeedback(feedback.filter((item) => item.id !== id));
     }
   };
 
   //update feedback item
   const updateFeedback = async (id, updItem) => {
-    const response = await fetch(`/feedback/${id}`, { 
+    const response = await fetch(`${BASE_URL}/feedback/${id}`, { 
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -65,7 +65,7 @@ export const FeedbackProvider = ({ children }) => {
 
   // add feedback
   const addFeedback = async (newFeedback) => {
-    const response = await fetch(`/feedback`, {
+    const response = await fetch(`${BASE_URL}/feedback`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
