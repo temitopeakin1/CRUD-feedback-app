@@ -54,6 +54,11 @@
       "rating": "14",
       "text": "new feedback item",
       "id": 12
+    },
+    {
+      "rating": "4",
+      "text": "new feedback item",
+      "id": 13
     }
   ]
 }
