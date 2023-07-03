@@ -1,5 +1,4 @@
 import { createContext, useState, useEffect } from "react";
-
 // import { v4 as uuidv4 } from "uuid"; // to get random ids
 
 const FeedbackContext = createContext();
@@ -20,7 +19,7 @@ export const FeedbackProvider = ({ children }) => {
 
   const fetchFeedBack = async () => {
     // const response = await fetch(`/feedback?_sort=id&_order=asc`);
-    const response = await fetch('https://crud-feedback.netlify.app/feedback');
+    const response = await fetch(process.env.API_URL);
     const data = await response.json();
     
 
