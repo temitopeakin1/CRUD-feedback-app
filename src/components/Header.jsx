@@ -15,8 +15,6 @@ function Header({ text }) {
   )
 }
 
-
-
 Header.defaultProps = {
      text: 'CRUD Feedback App',
      bgColor: '#333',

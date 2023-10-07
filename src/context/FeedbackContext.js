@@ -6,6 +6,7 @@ const FeedbackContext = createContext();
 export const FeedbackProvider = ({ children }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [feedback, setFeedback] = useState([]);
+  // const [message, setMessage] = useState()
 
   // making the edit mode global
   const [feedbackEdit, setFeedbackEdit] = useState({
@@ -18,7 +19,7 @@ export const FeedbackProvider = ({ children }) => {
   }, []);
 
   const fetchFeedBack = async () => {
-    const response = await fetch(`/feedback?_sort=id&_order=asc`);
+    const response = await fetch(`http://localhost:5000/feedback?_sort=id&_order=asc`);
     const data = await response.json();
 
     setFeedback(data);
@@ -28,14 +29,14 @@ export const FeedbackProvider = ({ children }) => {
   // delete feedback
   const deleteFeedback = async (id) => {
     if (window.confirm("Are you sure you want to delete?")) {
-      await fetch(`/feedback/${id}`, { method: "DELETE" });
+      await fetch(`http://localhost:5000/feedback/${id}`, { method: "DELETE" });
       setFeedback(feedback.filter((item) => item.id !== id));
     }
   };
 
   //update feedback item
   const updateFeedback = async (id, updItem) => {
-    const response = await fetch(`/feedback/${id}`, { 
+    const response = await fetch(`http://localhost:5000/feedback/${id}`, { 
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -62,7 +63,7 @@ export const FeedbackProvider = ({ children }) => {
 
   // add feedback
   const addFeedback = async (newFeedback) => {
-    const response = await fetch(`/feedback`, {
+    const response = await fetch(`http://localhost:5000/feedback`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
